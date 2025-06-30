@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from contacts.models import Contact
 from django.http import Http404
+from django.db.models import Q
 
 
 # Create your views here.
@@ -39,10 +40,11 @@ def search(request):
     if search_value == "":
         return redirect("contacts:index")
 
-    contacts = Contact.objects.filter(show=True).filter(first_name__icontains=search_value).order_by('-id')[:10]
+    contacts = Contact.objects.filter(show=True).filter(Q(first_name__icontains=search_value) | Q(last_name__icontains=search_value)).order_by('-id')[:10]
     context = {
         "contacts": contacts,
-        "site_title": "Search - "
+        "site_title": "Search -",
+        "search_value": search_value
     }
 
     return render(
