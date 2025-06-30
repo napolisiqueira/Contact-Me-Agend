@@ -5,4 +5,5 @@ app_name='contacts'
 urlpatterns = [
     path('', views.index, name="index"),
     path('<int:id>/', views.contact, name="contact"),
+    path('serach/', views.search, name="search"),
 ]
