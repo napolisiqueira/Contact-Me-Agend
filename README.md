@@ -1,37 +1,35 @@
-# 📇 MEYU – Agenda de Contatos em Django
+<body>
+    <div class="container">
+        <h1>📇 MEYU – Agenda de Contatos em Django</h1>
+        <p><strong>MEYU</strong> é uma aplicação web feita com Django que funciona como uma agenda de contatos simples, prática e moderna. É um projeto ideal para demonstrar conhecimentos em desenvolvimento backend com Python e Django, além do uso de templates, formulários e autenticação.</p>
+        <p>
+            <img src="https://img.shields.io/badge/Django-4.x-green" alt="Django 4.x" class="badge">
+            <img src="https://img.shields.io/badge/Python-3.11-blue" alt="Python 3.11" class="badge">
+            <img src="https://img.shields.io/badge/status-em%20desenvolvimento-yellow" alt="Status: Em desenvolvimento" class="badge">
+        </p>
 
-**MEYU** é uma aplicação web feita com Django que funciona como uma agenda de contatos simples, prática e moderna. É um projeto ideal para demonstrar conhecimentos em desenvolvimento backend com Python e Django, além do uso de templates, formulários e autenticação.
+  <h2>🚀 Funcionalidades</h2>
+  <ul>
+      <li>🔐 Sistema de autenticação (login/logout)</li>
+      <li>📄 Cadastro de contatos com nome, telefone, e-mail, imagem e categoria</li>
+      <li>🔎 Filtro e busca de contatos por nome</li>
+      <li>✏️ Edição e exclusão de contatos</li>
+      <li>🧾 Formulários personalizados com mensagens de erro</li>
+      <li>🧩 Organização de contatos por categorias</li>
+      <li>🖼 Upload de fotos para cada contato</li>
+      <li>🔒 Somente usuários autenticados acessam os dados</li>
+  </ul>
 
-![Django](https://img.shields.io/badge/Django-4.x-green)   ![Python](https://img.shields.io/badge/Python-3.11-blue)   ![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)
+  <h2>🧠 Tecnologias Utilizadas</h2>
+  <ul>
+      <li><a href="https://www.python.org/">Python 3.11+</a></li>
+      <li><a href="https://www.djangoproject.com/">Django</a></li>
+      <li>HTML + CSS (via Templates Django)</li>
+      <li>SQLite/PostgreSQL (como banco de dados padrão)</li>
+  </ul>
 
----
-
-## 🚀 Funcionalidades
-
-- 🔐 Sistema de autenticação (login/logout)
-- 📄 Cadastro de contatos com nome, telefone, e-mail, imagem e categoria
-- 🔎 Filtro e busca de contatos por nome
-- ✏️ Edição e exclusão de contatos
-- 🧾 Formulários personalizados com mensagens de erro
-- 🧩 Organização de contatos por categorias
-- 🖼 Upload de fotos para cada contato
-- 🔒 Somente usuários autenticados acessam os dados
-
----
-
-## 🧠 Tecnologias Utilizadas
-
-- [Python 3.11+](https://www.python.org/)
-- [Django](https://www.djangoproject.com/)
-- HTML + CSS (via Templates Django)
-- SQLite/PostgreeSQL (como banco de dados padrão)
-
----
-
-## 📂 Estrutura do Projeto
-
-Contact-Me-Agend/
-```bash
+  <h2>📂 Estrutura do Projeto</h2>
+  <pre><code>Contact-Me-Agend/
 ├── AddressBook/ # Configurações do projeto Django
 │ ├── settings.py
 │ ├── urls.py
@@ -44,68 +42,57 @@ Contact-Me-Agend/
 │ └── templates/
 ├── db.sqlite3 # Banco de dados local
 ├── manage.py
-```
----
+</code></pre>
 
-## ⚙️ Como Executar Localmente
+  <h2>⚙️ Como Executar Localmente</h2>
+  <ol>
+      <li><strong>Clone o repositório</strong>:
+          <pre><code>git clone https://github.com/napolisiqueira/Contact-Me-Agend.git
+cd Contact-Me-Agend</code></pre>
+            </li>
+            <li><strong>Crie um ambiente virtual</strong>:
+                <p>Recomendação: Use o UV UltraViolet para fazer seu ambiente virtual ou Poetry.</p>
+                <pre><code>uv init # para inicializar um projeto
+uv venv # para criar o ambiente virtual
+uv sync # para instalar as dependências do pyproject.toml</code></pre>
+                <p>Ou, com o método padrão do Python:</p>
+                <pre><code>python -m venv .venv # crie um ambiente virtual
+.venv\Scripts\activate # Ative no Windows
+source .venv/bin/activate # Ou no Linux/macOS</code></pre>
+            </li>
+            <li><strong>Instale as dependências</strong>:
+                <pre><code>pip install -r requirements.txt  # ou use `uv pip install -r requirements.txt`</code></pre>
+            </li>
+            <li><strong>Rode as migrações</strong>:
+                <pre><code>python manage.py migrate</code></pre>
+            </li>
+            <li><strong>(Opcional) Crie um superusuário</strong>:
+                <pre><code>python manage.py createsuperuser</code></pre>
+            </li>
+            <li><strong>Inicie o servidor</strong>:
+                <pre><code>python manage.py runserver</code></pre>
+            </li>
+        </ol>
 
-1. Clone o repositório:
+  <h2>📌 Próximas Melhorias</h2>
+  <ul>
+      <li>Paginação da lista de contatos</li>
+      <li>Upload de arquivos otimizado</li>
+      <li>Integração com API externa (WhatsApp, e-mail)</li>
+      <li>Melhorar responsividade com Bootstrap</li>
+      <li>Exportar contatos para CSV/PDF</li>
+      <li>Adicionar testes automatizados</li>
+  </ul>
 
-```bash
-git clone https://github.com/napolisiqueira/Contact-Me-Agend.git
-cd Contact-Me-Agend
-Crie um ambiente virtual:
-```
-2. Recomendação: Use o UV UltraViolet para fazer seu ambiente virtual ou Poetry.
-```bash
-uv init #para inicializar um projeto
-uv venv #para criar o ambiente virtual
-uv sync # para instalar as dependecias do pyproject.toml
-```
-3. Crie o ambiente virtual caso faça com o metodo padrão do python.
-```bash
-python -m venv .venv # crie um ambiente virtual
-.venv\Scripts\activate # Ative no Windows:
-source .venv/bin/activate # Ou no Linux/macOS:
-```
-4. Instale as dependências:
-```bash
-pip install -r requirements.txt  # ou use `uv pip install -r requirements.txt`
-```
-5. Rode as migrações:
-```bash
-python manage.py migrate
-```
-6. (Opcional) Crie um superusuário:
-```
-python manage.py createsuperuser
-```
-7. Inicio o servidor:
-```
-python manage.py runserver
-```
+  <h2>👨‍💻 Autor</h2>
+  <p>Desenvolvido por Felipe Napoli Siqueira</p>
+  <ul>
+      <li>📫 <a href="mailto:napolisiqueira@gmail.com">napolisiqueira@gmail.com</a></li>
+      <li>🔗 <a href="https://github.com/napolisiqueira">github.com/napolisiqueira</a></li>
+  </ul>
 
-## 📌 Próximas Melhorias
--  Paginação da lista de contatos
-
--  Upload de arquivos otimizado
-
--  Integração com API externa (WhatsApp, e-mail)
-
--  Melhorar responsividade com Bootstrap
-
--  Exportar contatos para CSV/PDF
-
--  Adicionar testes automatizados
-
----
-
-### 👨‍💻 Autor
-Desenvolvido por Felipe Napoli Siqueira
-- 📫 napolisiqueira@gmail.com
-- 🔗 github.com/napolisiqueira
-
----
-
-### 📝 Licença
-Este projeto está sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
+  <h2>📝 Licença</h2>
+  <p>Este projeto está sob a licença MIT. Veja o arquivo <a href="#">LICENSE</a> para mais detalhes.</p>
+</div>
+</body>
+</html>
