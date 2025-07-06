@@ -62,3 +62,12 @@ def search(request):
         'contacts\index.html',
         context
     )
+
+
+def delete(request, contact_id):
+    single_contact = get_object_or_404(Contact,pk=contact_id, show=True)
+
+    single_contact.delete()
+
+    return redirect('contacts:index')
+    

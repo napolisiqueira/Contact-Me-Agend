@@ -1,23 +1,53 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
 from contacts.forms import ContactForm
+from django.urls import reverse
+from contacts.models import Contact
+
 
 def create(request):
-    if request.method == "POST":
-        context = {
-            'form': ContactForm(request.POST)
-        }
+    form_action = reverse("contacts:create")
 
-        return render(
-            request,
-            'contacts/create.html',
-            context
-        )
+    if request.method == "POST":
+        form = ContactForm(request.POST)
+        context = {
+            "form": form,
+            "form_action": form_action,
+        }
+        if form.is_valid():
+            contact = form.save(commit=False)
+            contact.save()
+            return redirect("contacts:update", contact_id=contact.pk)
+
+        return render(request, "contacts/create.html", context)
+
     context = {
-        'form': ContactForm()
+        "form": ContactForm(),
+        "form_action": form_action,
     }
 
-    return render(
-        request,
-        'contacts/create.html',
-        context
-    )
+    return render(request, "contacts/create.html", context)
+
+
+def update(request, contact_id):
+    contact = get_object_or_404(Contact, pk=contact_id, show=True)
+    form_action = reverse("contacts:update", args=(contact_id,))
+
+    if request.method == "POST":
+        form = ContactForm(request.POST, instance=contact)
+        context = {
+            "form": form,
+            "form_action": form_action,
+        }
+        if form.is_valid():
+            contact = form.save(commit=False)
+            contact.save()
+            return redirect("contacts:update", contact_id=contact.pk)
+
+        return render(request, "contacts/create.html", context)
+
+    context = {
+        "form": ContactForm(instance=contact),
+        "form_action": form_action,
+    }
+
+    return render(request, "contacts/create.html", context)
