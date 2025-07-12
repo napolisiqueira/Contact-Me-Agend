@@ -6,8 +6,15 @@
     <link rel="stylesheet" href="{% static "global\css\style.css" %}">
     <title>{{ site_title }}MEYU</title>
 </head>
-   {% include "global/partials/_header.html" %}
-    <body>
+<body>
+        {% include "global/partials/_header.html" %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="message {{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
 
         <main class="content">
             {% block content %}{% endblock content %}

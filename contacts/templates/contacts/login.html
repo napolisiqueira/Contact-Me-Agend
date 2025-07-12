@@ -1,15 +1,20 @@
 {% extends 'global/base.html' %}
 
 {% block content %}
-  <h1>CREATE CONTACT</h1>
+  <h1>LOGIN ON ACCOUNT</h1>
   <div class="form-wrapper">
 
-    <h2>Contact</h2>
+    <h2>Login</h2>
     
+    {% if user.is_asuthenticated %}
+    <p>
+      Você fez login como  {{ user.username }}
+      Clique <a href="{% url "contacts:logout_view" %}">aqui</a> para sair.
+    </p>
+    {% endif %}
     <form 
-      action="{{ form-action }}"
+      action="{{ form_action }}"
       method="POST"
-      enctype="multipart/form-data"
     >
         {% csrf_token %}
 
@@ -37,11 +42,13 @@
       {% if form.non_field_errors %}
         <div class="form-content">
           <div class="form-group">
-            {{ form.non_field_errors }} 
+            <div class="message error">
+              {{ form.non_field_errors }}
+            </div>
           </div>
         </div>
       {% endif %}
-
+      
       <div class="form-content">
         <div class="form-group">
           <button class="btn" type="submit">Send</button>

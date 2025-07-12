@@ -4,12 +4,11 @@
   <h1>CREATE CONTACT</h1>
   <div class="form-wrapper">
 
-    <h2>Contact</h2>
+    <h2>Register</h2>
     
     <form 
-      action="{{ form-action }}"
+      action="{{ form_action }}"
       method="POST"
-      enctype="multipart/form-data"
     >
         {% csrf_token %}
 
@@ -37,11 +36,13 @@
       {% if form.non_field_errors %}
         <div class="form-content">
           <div class="form-group">
-            {{ form.non_field_errors }} 
+            <div class="message error">
+              {{ form.non_field_errors }}
+            </div>
           </div>
         </div>
       {% endif %}
-
+      
       <div class="form-content">
         <div class="form-group">
           <button class="btn" type="submit">Send</button>

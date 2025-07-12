@@ -3,6 +3,7 @@ from contacts.models import Contact
 from django.http import Http404
 from django.db.models import Q
 from django.core.paginator import Paginator
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
@@ -63,11 +64,22 @@ def search(request):
         context
     )
 
-
+@login_required(login_url=('contacts:login'))
 def delete(request, contact_id):
-    single_contact = get_object_or_404(Contact,pk=contact_id, show=True)
+    single_contact = get_object_or_404(Contact,pk=contact_id, show=True, owner= request.user)
 
-    single_contact.delete()
+    confirmation = request.POST.get('confirmation')
+    if confirmation == "yes":
+        single_contact.delete()
+        return redirect('contacts:index')
 
-    return redirect('contacts:index')
     
+    
+    
+    return render(
+        'contacts/contact.html',
+        {
+            'contact': contact,
+            'confirmation': confirmation,
+        }
+    )

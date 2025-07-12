@@ -74,16 +74,6 @@ source .venv/bin/activate # Ou no Linux/macOS</code></pre>
             </li>
         </ol>
 
-  <h2>📌 Próximas Melhorias</h2>
-  <ul>
-      <li>Paginação da lista de contatos</li>
-      <li>Upload de arquivos otimizado</li>
-      <li>Integração com API externa (WhatsApp, e-mail)</li>
-      <li>Melhorar responsividade com Bootstrap</li>
-      <li>Exportar contatos para CSV/PDF</li>
-      <li>Adicionar testes automatizados</li>
-  </ul>
-
   <h2>👨‍💻 Autor</h2>
   <p>Desenvolvido por Felipe Napoli Siqueira</p>
   <ul>
@@ -91,8 +81,6 @@ source .venv/bin/activate # Ou no Linux/macOS</code></pre>
       <li>🔗 <a href="https://github.com/napolisiqueira">github.com/napolisiqueira</a></li>
   </ul>
 
-  <h2>📝 Licença</h2>
-  <p>Este projeto está sob a licença MIT. Veja o arquivo <a href="#">LICENSE</a> para mais detalhes.</p>
 </div>
 </body>
 </html>
